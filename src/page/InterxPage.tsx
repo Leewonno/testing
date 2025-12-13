@@ -1,7 +1,8 @@
 'use client'
 
-import ButtonWidget from "@/widgets/interx/ButtonWidget"
-import TitleWidtet from "@/widgets/interx/TitleWidget"
+import ButtonWidget from "@/widgets/interx/components/ButtonWidget"
+import TitleWidtet from "@/widgets/interx/components/TitleWidget"
+import StemItemContainer from "@/widgets/interx/ui/StemItemContainer"
 import styled from "styled-components"
 
 const Layout = styled.div`
@@ -23,6 +24,7 @@ export const InterxPage = () => {
       <Section>
         <TitleWidtet />
         <ButtonWidget />
+        <StemItemContainer />
       </Section>
     </Layout>
   )
