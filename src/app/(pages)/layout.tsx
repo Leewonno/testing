@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { StyledComponentsRegistry } from "@/lib/styleRegistry";
+import StoreProvider from "../StoreProvider";
 
 export const metadata: Metadata = {
   title: "Leewonno",
@@ -19,9 +20,11 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
       </head>
       <body>
-        <StyledComponentsRegistry>
-          {children}
-        </StyledComponentsRegistry>
+        <StoreProvider>
+          <StyledComponentsRegistry>
+            {children}
+          </StyledComponentsRegistry>
+        </StoreProvider>
       </body>
     </html>
   );

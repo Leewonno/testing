@@ -8,8 +8,8 @@ interface InterxState {
 const initialState: InterxState = {
   interxList: [{
     level: 1,
-    stepTitle: '',
-    stepIcon: '',
+    stepTitle: '지원(서류전형)',
+    stepIcon: '✏️',
     applicantList: [
       {
         applicantName: "지원자1",
@@ -20,7 +20,47 @@ const initialState: InterxState = {
         applicantId: 'A02',
       }
     ]
-  }]
+  },
+  {
+    level: 2,
+    stepTitle: 'TA 스크린 콜',
+    stepIcon: '📞',
+    applicantList: [
+      {
+        applicantName: "지원자3",
+        applicantId: 'A03',
+      }
+    ]
+  },
+  {
+    level: 3,
+    stepTitle: '1차 인터뷰 (실무)',
+    stepIcon: '🥇',
+    applicantList: [
+    ]
+  },
+  {
+    level: 4,
+    stepTitle: '코딩테스트',
+    stepIcon: '🖥️',
+    applicantList: [
+    ]
+  },
+  {
+    level: 5,
+    stepTitle: '2차 인터뷰 (임원)',
+    stepIcon: '🥈',
+    applicantList: [
+    ]
+  },
+  {
+    level: 6,
+    stepTitle: '처우 협의',
+    stepIcon: '🥉',
+    applicantList: [
+    ]
+  }
+  ]
 };
 
 export const interxSlice = createSlice({

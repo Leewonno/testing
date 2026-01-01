@@ -2,7 +2,7 @@
 
 import ButtonWidget from "@/widgets/interx/components/ButtonWidget"
 import TitleWidtet from "@/widgets/interx/components/TitleWidget"
-import StemItemContainer from "@/widgets/interx/ui/StemItemContainer"
+import StepItemContainer from "@/widgets/interx/ui/StepItemContainer"
 import styled from "styled-components"
 
 const Layout = styled.div`
@@ -24,7 +24,7 @@ export const InterxPage = () => {
       <Section>
         <TitleWidtet />
         <ButtonWidget />
-        <StemItemContainer />
+        <StepItemContainer />
       </Section>
     </Layout>
   )
