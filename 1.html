@@ -1,0 +1,66 @@
+<style>
+    .list { width: 420px; border: 1px solid #ddd; }
+    .row { display: flex; align-items: center; gap: 12px; padding: 10px; }
+    .title { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .chip { padding: 2px 6px; border-radius: 999px; font-size: 12px; }
+    .hint { font-size: 12px; opacity: .75; }
+  </style>
+  
+  <div class="list" id="list"></div>
+  
+  <script>
+    const list = document.getElementById("list");
+    const rows = Array.from({ length: 200 }, (_, i) => {
+      const row = document.createElement("div");
+      row.className = "row";
+      row.innerHTML = `
+        <div class="title">Row ${i} — a somewhat long title to trigger ellipsis & text layout</div>
+        <span class="chip">new</span>
+        <span class="hint">(optional)</span>
+      `;
+      return row;
+    });
+    list.append(...rows);
+  
+  
+    let t = 0;
+    // mousemove -> 브라우저마다 발생하는 빈도가 다르다. 마지막 결과물에는 차이가 있을수는 있으나 사람 눈으로 구분이 힘들 수 있다.
+    // 배치를 하는 방법이 있음 -> requestAnimationFrame 를 바로 넣지 않고 1/16ms 마다 실행하는 방법도 있음
+    list.addEventListener("mousemove", (e) => {
+      t++;
+  
+      const idx = Math.floor((e.offsetY / list.clientHeight) * rows.length);
+      const start = Math.max(0, idx - 15);
+      const end = Math.min(rows.length, idx + 15);
+  
+      for (let i = start; i < end; i++) {
+        const row = rows[i];
+  
+        row.style.paddingLeft = (10 + (t % 6)) + "px";
+        row.style.borderLeft = ((t % 2) ? 3 : 0) + "px solid #888";
+  
+        const r = row.getBoundingClientRect();
+  
+        const title = row.querySelector(".title");
+        if (r.width < 360) {
+          title.style.maxWidth = (r.width - 120) + "px";
+        } else {
+          title.style.maxWidth = "240px";
+        }
+  
+        row.offsetHeight;
+      }
+    });
+  
+    list.style.height = "360px";
+    list.style.overflow = "auto";
+  
+    list.addEventListener("scroll", () => {
+      list.style.borderWidth = (1 + (list.scrollTop % 2)) + "px";
+  
+      const rect = list.getBoundingClientRect();
+  
+      list.style.boxShadow = rect.top < 20 ? "0 8px 24px rgba(0,0,0,.12)" : "none";
+      list.clientHeight;
+    });
+  </script>
