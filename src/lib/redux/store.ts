@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-import interxReducer from './features/interx/interxSlice';
+import counterReducer from './features/counter/counterSlice';
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
-      interx: interxReducer,
+      counter: counterReducer,
     }
   })
 }
