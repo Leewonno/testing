@@ -1,8 +1,5 @@
 'use client'
 
-import ButtonWidget from "@/widgets/interx/components/ButtonWidget"
-import TitleWidtet from "@/widgets/interx/components/TitleWidget"
-import StepItemContainer from "@/widgets/interx/ui/StepItemContainer"
 import styled from "styled-components"
 
 const Layout = styled.div`
@@ -18,13 +15,10 @@ const Section = styled.section`
   gap: 0.5rem;
 `
 
-export const InterxPage = () => {
+export const JypPage = () => {
   return (
     <Layout>
       <Section>
-        <TitleWidtet />
-        <ButtonWidget />
-        <StepItemContainer />
       </Section>
     </Layout>
   )

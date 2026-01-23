@@ -10,8 +10,8 @@ const PageLink = styled(Link)`
 export const HomePage = () => {
   return (
     <>
-      <PageLink href={'/interx'}>인터엑스</PageLink>
       <PageLink href={'/flab'}>F-Lab</PageLink>
+      <PageLink href={'/jyp'}>JYP</PageLink>
     </>
   )
 }
